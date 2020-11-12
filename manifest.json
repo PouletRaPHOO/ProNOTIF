@@ -1,0 +1,11 @@
+{
+  "name": "Pronotif",
+  "version": "0.1.0",
+  "description": "Reçois tes notifications Pronote directement sur le bureau",
+  "manifest_version": 2,
+  "icons": {
+    "16": "logos/logo16.png",
+    "48": "logos/logo48.png",
+    "128": "logos/logo128.png" 
+  }
+}
