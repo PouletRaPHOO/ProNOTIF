@@ -13,9 +13,11 @@
     "default_icon": "logos/logo16.png"
   },
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "permissions": [
     "storage"
   ]
-
-
 }
