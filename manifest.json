@@ -13,8 +13,6 @@
     "default_icon": "logos/logo16.png"
   },
 
-  "options_page":"options.html",
-
   "permissions": [
     "storage"
   ]
