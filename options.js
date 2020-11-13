@@ -1,10 +1,18 @@
 $(function(){
+
+    chrome.storage.sync.get('Adresse', function(authentifications){
+        console.log(authentifications.Adresse)
+        $('#url').val(authentifications.Adresse);
+    })
+
+
     $('#subAuth').click(function(){
-        var URL = $('#URL').val();
+        console.log("test")
+        var URL = $('#url').val();
         var Auth = $('#Auth').val();
         var Password = $('#Password').val();
         if(URL&&Password&&Auth) {
-            chrome.storage.sync.get({'URL':URL, 'Auth':Auth,'Password':Password}, function(){
+            chrome.storage.sync.set({'Adresse':URL, 'Auth':Auth,'Password':Password}, function(){
                 close();
             })
         }
