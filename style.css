@@ -7,7 +7,6 @@ div#header {
     font-size: 20px;
     font-weight: 100;
     color: azure;
-    margin: 0;
 }
 
 *{
@@ -17,7 +16,7 @@ div#header {
 
 div#topBarre {
     background-color: #46484d;
-    height: 40px;
+    height: 60px;
     width: 300px;
 }
 
@@ -25,12 +24,20 @@ body{
     width: 300px;
     font-family: Montserrat;
     font-style: normal;
+    background-color: white;
 }
 
 html{
     box-sizing: border-box;
 }
 
-div#texteMilieu {
-    padding: 20px;
+
+.inputBar{
+    border-radius: 20px;
+}
+
+div#carte{
+    margin: 16px;
+    background-color: #f8f8f8;
+    box-shadow:  0 2px 8px 0 rgba(0, 0, 0, 0.2);
 }
