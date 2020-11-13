@@ -7,5 +7,17 @@
     "16": "logos/logo16.png",
     "48": "logos/logo48.png",
     "128": "logos/logo128.png" 
-  }
+  },
+  "browser_action" : {
+    "default_popup" : "popup.html",
+    "default_icon": "logos/logo16.png"
+  },
+
+  "options_page":"options.html",
+
+  "permissions": [
+    "storage"
+  ]
+
+
 }
