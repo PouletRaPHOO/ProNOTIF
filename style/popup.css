@@ -160,3 +160,10 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
+
+.greetings {
+  width: 80%;
+  margin: auto;
+  font-weight: normal;
+  padding-bottom: 30px;
+}

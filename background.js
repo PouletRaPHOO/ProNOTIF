@@ -1,10 +1,10 @@
 function checkId() {
-    chrome.storage.sync.get(['Adresse','Password','Auth'], function(authentifications){
-        console.log(authentifications.Adresse)
-        Adresse = authentifications.Adresse;
-        Auth = authentifications.Auth;
-        Password =authentifications.Password;
-    })
-    setTimeout(checkId,60000);
+    chrome.storage.sync.get(['adresse','password','id'], function(authentifications){
+        adresse = authentifications.adresse;
+        id = authentifications.id;
+        password =authentifications.password;
+        console.log(adresse, id, password)
+    });
 }
-setTimeout(checkId,1000)
+
+checkId()
