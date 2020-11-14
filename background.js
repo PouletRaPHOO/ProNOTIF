@@ -39,23 +39,52 @@ function checkId() {
                                 let messages = {}
                                     messages[0] = {
                                         title: response[0].title,
-                                        date: response[0].date
+                                        date: response[0].date,
+                                        content: response[0].htmlContent
                                     }
                                     messages[1] = {
                                         title: response[1].title,
-                                        date: response[1].date
+                                        date: response[1].date,
+                                        content: response[1].htmlContent
                                     }
                                     messages[2] = {
                                         title: response[2].title,
-                                        date: response[2].date
+                                        date: response[2].date,
+                                        content: response[2].htmlContent
                                     }
                                     messages[3] = {
                                         title: response[3].title,
-                                        date: response[3].date
+                                        date: response[3].date,
+                                        content: response[3].htmlContent
                                     }
                                 chrome.storage.sync.set(messages, function() {
                                 })
                                 break;
+                            } else {
+                                let messages = {}
+                                messages[0] = {
+                                    title: response[0].title,
+                                    date: response[0].date,
+                                    content: response[0].htmlContent
+                                }
+                                messages[1] = {
+                                    title: response[1].title,
+                                    date: response[1].date,
+                                    content: response[1].htmlContent
+                                }
+                                messages[2] = {
+                                    title: response[2].title,
+                                    date: response[2].date,
+                                    content: response[2].htmlContent
+                                }
+                                messages[3] = {
+                                    title: response[3].title,
+                                    date: response[3].date,
+                                    content: response[3].htmlContent
+                                }
+                            chrome.storage.sync.set(messages, function() {
+                            })
+                            break;
                             }
                         }
                     }
