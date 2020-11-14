@@ -27,7 +27,7 @@ $(function(){
             $(`#msg${i}`).html(Distribution[i].content)
             $(`#title${i}`).text(Distribution[i].title)
             dateOriginal =parse(Distribution[i].date)
-            dateMsg = 
+            dateMsg = `${jourSem(dateOriginal)}${dateOriginal.getDate}${moisAn(dateOriginal)}${dateOriginal.getYear}`
             $(`#date${i}`).text(dateMsg)
         }
     })
