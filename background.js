@@ -20,7 +20,6 @@ function checkId() {
                             return "500"
                         }
                     })
-
                     if (response.length === 4) {
                         for (let k = 0; k < response.length; k++) {
                             if (response[k].title !== oldMessages[k].title) {
