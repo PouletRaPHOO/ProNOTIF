@@ -14,8 +14,14 @@
         <span id="version">Pronotif 0.1.0</span>
         <img src="logos/logo.png" id="logo">
     </header>
-
-    <div id='disconnected-container'>
+    <div id="loading">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;" width="204px" height="204px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke="#17ab67" stroke-width="10" r="37" stroke-dasharray="174.35839227423352 60.119464091411174">
+              <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+            </circle>
+            </svg>
+    </div>
+    <div id="disconnected-container">
         <h2>Connectez-vous à Pronote</h2>
         <p>Afin que Pronotif puisse vous envoyez les notifications en temps réel, il vous suffit de vous connecter par le biais de cette fenêtre</p>
         <form id='auth-form'>
@@ -34,9 +40,11 @@
                 <input class="form-field" id="password" type="password" placeholder="MotDePasseSécurr123">
             </div>
         </form>
+        <button id="connect">Se connecter</button>
     </div>
-    <div id='connected-container'>
+    <div id="connected-container">
         <h2 class="greetings">Félicitations, vous êtes connecté ! Nous nous occupons du reste, vous pouvez aller vous reposer.</h2>
+        <button id="disconnect">Se déconnecter</button>
     </div>
     <div id="footer"></div>
 </body>

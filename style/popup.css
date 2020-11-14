@@ -24,7 +24,6 @@
 
 body {
   width: 450px;
-  min-height: 100vh;
   font-family: 'Montserrat', Arial;
   display: flex;
   justify-content: center;
@@ -38,12 +37,8 @@ body .form-group {
   margin: auto;
 }
 
-body .form-group:not(:last-child) {
+body .form-group {
   margin-bottom: 12px;
-}
-
-body .form-group:last-child {
-  margin-bottom: 35px;
 }
 
 header {
@@ -161,13 +156,47 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-#connected-container {
-  display: none;
-}
-
 .greetings {
   width: 80%;
   margin: auto;
   font-weight: normal;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
+}
+
+button {
+  background: #17ab67;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  outline: none;
+  border: none; 
+  margin: auto;
+  width: 30%;
+  margin-bottom: 32px;
+}
+
+#loading {
+  display: none;
+  width: 5%;
+  height: 5%;
+  margin: auto;
+}
+
+#connected-container {
+  display: none;
+  flex-direction: column;
+}
+
+#disconnected-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button:hover {
+  background: #1abd71;
+}
+
+#connect {
+  padding: 7px 10px;
 }
