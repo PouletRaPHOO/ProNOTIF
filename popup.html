@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POPUP</title>
     <script src="jquery-3.5.1.min.js"></script>
     <script src="popup.js"></script>
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style/popup.css'>
 </head>
 <body>
-    <div id='content'>
-        <div id='topBarre'>
-            <div id='header'>
-                <p>Bienvenue sur ProNotif</p>
+    <header>
+        <span id="version">Pronotif 0.1.0</span>
+        <img src="logos/logo.png" id="logo">
+    </header>
+
+    <div id='main-container'>
+        <h2>Connectez-vous à Pronote</h2>
+        <p>Afin que Pronotif puisse vous envoyez les notifications en temps réel, il vous suffit de vous connecter par le biais de cette fenêtre</p>
+        <form id='auth-form'>
+            <div class="form-group">
+                <span>https://</span>
+                <input class="form-field" id="url" type="url" placeholder="0340038g.index-educa...">
             </div>
-        </div>
-        <div id='texteMilieu'>
-            <div id='carte'>
-                <h2>Entrez les Identifiants Pronote</p>
-                <h3>URL: <input class='inputBar' type="text" id='url'></p>
-                <h3>Identifiants: <input class='inputBar' type="text" id='Auth'></p>
-                <h3>Mot de Passe: <input class='inputBar' type="text" id='Password'></p>
-                <input type='submit' id='subAuth' value='Identifiez-vous'>
+            
+            <div class="form-group">
+                <span>identifiant</span>
+                <input class="form-field" id="id" type="text" placeholder="BRENIER">
             </div>
-        </div>
-        <div id='footer'>
-            <p>Extension crée par des gogoles qui font tous leurs projets de Dev sur Pronote. </p>
-        </div>
+            
+            <div class="form-group">
+                <span>••••••••••••</span>
+                <input class="form-field" id="password" type="password" placeholder="MotDePasseSécurr123">
+            </div>
+        </form>
     </div>
+    <div id="footer"></div>
 </body>
 </html>

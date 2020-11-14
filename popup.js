@@ -8,32 +8,45 @@ $(function(){
     })
 
 
-    $('#subAuth').click(function(){
-        console.log("test")
+    $('#password').on( "keyup", function(e){
+        if (e.keyCode == 13) {
         var URL = $('#url').val();
-        var Auth = $('#Auth').val();
-        var Password = $('#Password').val();
+        var Auth = $('#id').val();
+        var Password = $('#password').val();
         if(URL&&Password&&Auth) {
-            chrome.storage.sync.set({'Adresse':URL, 'Auth':Auth,'Password':Password}, async function(test) {
-                testUrl = `https://us-central1-pronote-login-api-ext.cloudfunctions.net/app/pronote/lastmessage/?url=${test.Adresse}&username=${test.Auth}&password=${test.Password}`
-                response= await jQuery.ajax(TestUrl)
-                if (typeof response === Object) {
-                    var notifLogged = {
+            chrome.storage.sync.set({'Adresse':URL, 'Auth':Auth,'Password':Password}, async function() {
+                console.log(URL, Auth, Password)
+                testUrl = `https://us-central1-pronote-login-api-ext.cloudfunctions.net/app/pronote/lastmessage/?url=${URL}&username=${Auth}&password=${Password}`
+                response = await jQuery.ajax({
+                    url: testUrl,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: (data) => {
+                        return data
+                    },
+                    error: () => {
+                        return "500"
+                    }
+                })
+                console.log(response)
+                if (response === "500") {
+                    const notifLogged = {
                         type: 'basic',
-                        iconUrl ='logos/logo128.png',
-                        title ='Bien Connecté',
-                        message ='Vous etes bien connecté sur la session Pronote de (à mettre plus tard avec une nouvelle URL)'
+                        iconUrl: 'logos/logo128.png',
+                        title: 'Mauvais identifiants',
+                        message: 'Un problème est survenu lors de la connexion à Pronote'
                     };
-                    chrome.notifications.create("Logged",notifLogged)
-                } else {
-                    var notifLogged = {
+                    chrome.notifications.create("Logged", notifLogged)
+                } else if (response.length === 4) {
+                    const notifLogged = {
                         type: 'basic',
-                        iconUrl ='logos/logo128.png',
-                        title ='Erreur de Connexion',
-                        message ='Uh oh Looks like you got the Wrong passwords'
+                        iconUrl: 'logos/logo128.png',
+                        title: 'Vous êtes connecté',
+                        message: 'Votre compte Pronote a bien été connecté'
                     };
+                    chrome.notifications.create("Logged", notifLogged)
                 }
             })
         }
-    })
+    }})
 })
