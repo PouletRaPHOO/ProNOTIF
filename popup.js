@@ -17,7 +17,7 @@ $(function() {
 
     $('#password').on( "keyup", async function(e){
         if (e.keyCode == 13) {
-            var adresse = $('#url').val();
+            var adresse = $('#url').val().split("?")[0];
             var id = $('#id').val();
             var password = $('#password').val();
             if(adresse&&id&&password) {
