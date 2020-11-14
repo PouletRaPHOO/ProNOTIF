@@ -1,7 +1,8 @@
 $(function() {
     chrome.storage.sync.get('status', function(connected){
         if (connected.status) {
-            $('#disconnected-container').hide()
+            $('#disconnected-container').css('display', 'none');
+            $('#connected-container').css('display', 'block');
         }
     })
     let adresse = "", id = "", password = ""
@@ -32,7 +33,7 @@ $(function() {
                             return "500"
                         }
                     })
-                    console.log(response)
+
                     if (response === "500") {
                         const notifLogged = {
                             type: 'basic',
@@ -56,7 +57,30 @@ $(function() {
                         chrome.storage.sync.set(save, function() {
                             let connected = {}
                             connected["status"] = true
-                            chrome.storage.sync.set(connected, function(){})
+                            chrome.storage.sync.set(connected, function() {
+                                let messages = {}
+                                messages[0] = {
+                                    title: response[0].title,
+                                    date: response[0].date
+                                }
+                                messages[1] = {
+                                    title: response[1].title,
+                                    date: response[1].date
+                                }
+                                messages[2] = {
+                                    title: response[2].title,
+                                    date: response[2].date
+                                }
+                                messages[3] = {
+                                    title: response[3].title,
+                                    date: response[3].date
+                                }
+                                chrome.storage.sync.set(messages, function(){
+                                    let lien = {};
+                                    lien['url'] = testUrl
+                                    chrome.storage.sync.set(lien, function(){})
+                                })
+                            })
                         })
                     }
                 

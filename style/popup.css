@@ -161,6 +161,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+#connected-container {
+  display: none;
+}
+
 .greetings {
   width: 80%;
   margin: auto;
