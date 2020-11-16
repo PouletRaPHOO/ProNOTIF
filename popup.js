@@ -7,6 +7,17 @@ $(function() {
         }
     })
 
+    chrome.storage.sync.get('url', function(connected){
+        if (connected.url) {
+            $('.version-container').css('cursor', 'pointer')
+            document.querySelector(".version-container").addEventListener("click", function (e) {
+                url = connected.url.split('?')[1].split('=')[1].split("&")[0] + "?login=true";
+                var win = window.open(url, '_blank');
+                win.focus();
+            });    
+        };
+    })
+
     $('#home-button').on("click", () => {
         window.location.href = "feed.html"
     })

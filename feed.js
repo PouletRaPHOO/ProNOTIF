@@ -14,6 +14,15 @@ $(function(){
         window.location.href = "popup.html"
     })
 
+    chrome.storage.sync.get('url', function(connected){
+        $('.version-container').css('cursor', 'pointer')
+        document.querySelector(".version-container").addEventListener("click", function (e) {
+            url = connected.url.split('?')[1].split('=')[1].split("&")[0] + "?login=true";
+            var win = window.open(url, '_blank');
+            win.focus();
+        });    
+    })
+
     mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
     joursSemaine = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
     const parse = (date) => {
