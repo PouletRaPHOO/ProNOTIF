@@ -1,0 +1,51 @@
+.notifications-container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(235, 235, 235);
+}
+
+.msg-container {
+  background: rgb(245, 245, 245);
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.089);
+}
+
+.icon-go-see:hover .path {
+  fill: #1abd71;
+}
+
+.icon-go-see, .icon-go-see svg {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  transition: ease all 0.1s;
+}
+
+.icon-go-see:hover svg {
+  width: 30px;
+  height: 30px;
+}
+
+.message-title .title-container::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  border-top: dotted 1px #b8b8b8;
+  width: 83%;
+  margin: auto;
+}
+
+.message-title .title-container span {
+  padding-bottom: 5px;
+}
+
+.message-title {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="popup.js"></script>
+    <script src="feed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style/popup.css'>
+    <link rel='stylesheet' type='text/css' href='style/feed.css'>
+    <title>NotifFeed</title>
+</head>
+<body>
+    <header>
+        <div class="version-container">
+            <span id="version">Pronotif 0.1.0</span>
+            <img src="logos/logo.png" id="logo">
+        </div>
+        <div class="menu-container" id="inbox-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 3H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 6h-3.14c-.47 0-.84.33-.97.78C14.53 11.04 13.35 12 12 12s-2.53-.96-2.89-2.22c-.13-.45-.5-.78-.97-.78H5V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v3zm-3.13 7H20c.55 0 1 .45 1 1v2c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-2c0-.55.45-1 1-1h4.13c.47 0 .85.34.98.8.35 1.27 1.51 2.2 2.89 2.2s2.54-.93 2.89-2.2c.13-.46.51-.8.98-.8z" class="path" fill="#4f4f4f"/></svg>
+        </div> 
+    </header>
+    <div class="notifications-container">
+        <div class="msg-container" id="msg-0">
+            <div class="message-title">
+                <div class="title-container">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="icon-go-see">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 0 27 27" width="27"><path d="M0 0h24v24H0V0z" fill="none"/><path class="path" d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.92 13.5l-2.2-2.2c-.9.58-2.03.84-3.22.62-1.88-.35-3.38-1.93-3.62-3.83-.38-3.01 2.18-5.52 5.21-5.04 1.88.3 3.39 1.84 3.7 3.71.19 1.16-.08 2.23-.64 3.12l2.2 2.19c.39.39.39 1.03 0 1.42-.4.4-1.04.4-1.43.01z" fill="#8a8a8a"/></svg>
+                </div>
+            </div>
+            <div class="message-content"></div>
+        </div>
+        <div class="msg-container" id="msg-1">
+            <div class="message-title">
+                <div class="title-container">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="icon-go-see">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 0 27 27" width="27"><path d="M0 0h24v24H0V0z" fill="none"/><path class="path" d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.92 13.5l-2.2-2.2c-.9.58-2.03.84-3.22.62-1.88-.35-3.38-1.93-3.62-3.83-.38-3.01 2.18-5.52 5.21-5.04 1.88.3 3.39 1.84 3.7 3.71.19 1.16-.08 2.23-.64 3.12l2.2 2.19c.39.39.39 1.03 0 1.42-.4.4-1.04.4-1.43.01z" fill="#8a8a8a"/></svg>
+                </div>
+            </div>
+            <div class="message-content"></div>
+        </div>
+        <div class="msg-container" id="msg-2">
+            <div class="message-title">
+                <div class="title-container">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="icon-go-see">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 0 27 27" width="27"><path d="M0 0h24v24H0V0z" fill="none"/><path class="path" d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.92 13.5l-2.2-2.2c-.9.58-2.03.84-3.22.62-1.88-.35-3.38-1.93-3.62-3.83-.38-3.01 2.18-5.52 5.21-5.04 1.88.3 3.39 1.84 3.7 3.71.19 1.16-.08 2.23-.64 3.12l2.2 2.19c.39.39.39 1.03 0 1.42-.4.4-1.04.4-1.43.01z" fill="#8a8a8a"/></svg>
+                </div>
+            </div>
+            <div class="message-content"></div>
+        </div>
+        <div class="msg-container" id="msg-3">
+            <div class="message-title">
+                <div class="title-container">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="icon-go-see">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 0 27 27" width="27"><path d="M0 0h24v24H0V0z" fill="none"/><path class="path" d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.92 13.5l-2.2-2.2c-.9.58-2.03.84-3.22.62-1.88-.35-3.38-1.93-3.62-3.83-.38-3.01 2.18-5.52 5.21-5.04 1.88.3 3.39 1.84 3.7 3.71.19 1.16-.08 2.23-.64 3.12l2.2 2.19c.39.39.39 1.03 0 1.42-.4.4-1.04.4-1.43.01z" fill="#8a8a8a"/></svg>
+                </div>
+            </div>
+            <div class="message-content"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>

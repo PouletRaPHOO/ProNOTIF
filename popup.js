@@ -3,15 +3,21 @@ $(function() {
         if (connected.status) {
             $('#disconnected-container').hide();
             $('#connected-container').css('display', 'flex');
+            $('#home-button').css('display', 'block');
         }
     })
 
+    $('#home-button').on("click", () => {
+        window.location.href = "feed.html"
+    })
+
     $('#connect').on("click", async function(){
-        $('#loading').show()
+        $('#loading').css('display', 'flex');
         $('#disconnected-container').hide();
-        const adresse = $('#url').val().split("?")[0];
-        var id = $('#id').val();
-        var password = $('#password').val();
+        let adresse = $('#url').val().split("?")[0];
+        adresse.split("https://").length > 1 ? adresse = adresse : adresse = "https://" + adresse
+        let id = $('#id').val();
+        let password = $('#password').val();
         if(adresse&&id&&password) {
                 testUrl = `https://us-central1-pronote-login-api-ext.cloudfunctions.net/app/pronote/lastmessage/?url=${adresse}&username=${id}&password=${password}`
                 response = await jQuery.ajax({
@@ -21,12 +27,8 @@ $(function() {
                     success: (data) => {
                         return data
                     },
-                    error: () => {
-                        return "500"
-                    }
-                })
-
-                if (response === "500") {
+                })           
+                .fail(function () {
                     const notifLogged = {
                         type: 'basic',
                         iconUrl: 'logos/logo128.png',
@@ -34,7 +36,10 @@ $(function() {
                         message: 'Un problème est survenu lors de la connexion à Pronote'
                     };
                     chrome.notifications.create("Logged", notifLogged)
-                } else if (response.length === 4) {
+                    $('#disconnected-container').css('display', 'flex');
+                    return $('#loading').hide();
+                }).catch(()=>{return})
+                if (response[0].title) {
                     const notifLogged = {
                         type: 'basic',
                         iconUrl: 'logos/logo128.png',
@@ -53,37 +58,44 @@ $(function() {
                             let messages = {}
                             messages[0] = {
                                 title: response[0].title,
-                                date: response[0].date
+                                date: response[0].date,
+                                content: response[0].htmlContent
                             }
                             messages[1] = {
                                 title: response[1].title,
-                                date: response[1].date
+                                date: response[1].date,
+                                content: response[1].htmlContent
                             }
                             messages[2] = {
                                 title: response[2].title,
-                                date: response[2].date
+                                date: response[2].date,
+                                content: response[2].htmlContent
                             }
                             messages[3] = {
                                 title: response[3].title,
-                                date: response[3].date
+                                date: response[3].date,
+                                content: response[3].htmlContent
                             }
                             chrome.storage.sync.set(messages, function(){
                                 let lien = {};
                                 lien['url'] = testUrl
                                 chrome.storage.sync.set(lien, function(){
                                     $('#connected-container').css('display', 'flex');
+                                    $('.menu-container').show();
                                     $('#loading').hide();
                                 })
                             })
                         })
                     })
                 }
-    }})
+            }
+    })
 
-    $('#disconnect').on("click", async function(){
-        document.getElementById('auth-form').reset()
+    $('#disconnect').on("click", function(){
+        document.getElementById('auth-form').reset();
         $('#disconnected-container').show();
         $('#connected-container').hide();
-        chrome.storage.sync.clear()
+        $('.menu-container').hide();
+        chrome.storage.sync.clear();
     })
 })
