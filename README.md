@@ -19,5 +19,5 @@ ProNotif est une extension Chrome permettant d'avoir vos notifications Pronote s
 
 #### Crédit
 
-    Extension crée par *RaPHOO#9532* et *utopy#1250*
+    Extension crée par RaPHOO#9532 et utopy#1250
 
